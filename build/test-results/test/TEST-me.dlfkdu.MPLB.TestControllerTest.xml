@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="me.dlfkdu.MPLB.TestControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-17T09:19:19" hostname="DESKTOP-U0QEPQG" time="0.718">
+  <properties/>
+  <testcase name="getAllMembers: 아티클 조회에 성공" classname="me.dlfkdu.MPLB.TestControllerTest" time="0.718"/>
+  <system-out><![CDATA[18:19:14.613 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestControllerTest]: using SpringBootContextLoader
+18:19:14.618 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [me.dlfkdu.MPLB.TestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+18:19:14.630 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [me.dlfkdu.MPLB.TestControllerTest]: TestControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:19:14.724 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+18:19:14.798 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\user\Documents\GitHub\MPLB\build\classes\java\main\me\dlfkdu\MPLB\MPLBApplication.class]
+18:19:14.819 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration me.dlfkdu.MPLB.MPLBApplication for test class me.dlfkdu.MPLB.TestControllerTest
+18:19:14.956 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+18:19:14.958 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2024-01-17T18:19:15.356+09:00  INFO 14484 --- [    Test worker] me.dlfkdu.MPLB.TestControllerTest        : Starting TestControllerTest using Java 17.0.7 with PID 14484 (started by user in C:\Users\user\Documents\GitHub\MPLB)
+2024-01-17T18:19:15.358+09:00  INFO 14484 --- [    Test worker] me.dlfkdu.MPLB.TestControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2024-01-17T18:19:16.162+09:00  INFO 14484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-17T18:19:16.257+09:00  INFO 14484 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interfaces.
+2024-01-17T18:19:16.731+09:00  INFO 14484 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-17T18:19:16.938+09:00  INFO 14484 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a33b4e7a-d254-4bf6-b900-d30348eb7004 user=SA
+2024-01-17T18:19:16.940+09:00  INFO 14484 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-17T18:19:17.008+09:00  INFO 14484 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-17T18:19:17.086+09:00  INFO 14484 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2024-01-17T18:19:17.320+09:00  WARN 14484 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2024-01-17T18:19:17.533+09:00  INFO 14484 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists member cascade 
+Hibernate: 
+    
+    create table member (
+       id bigint generated by default as identity,
+        name varchar(255) not null,
+        primary key (id)
+    )
+2024-01-17T18:19:18.246+09:00  INFO 14484 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-17T18:19:18.257+09:00  INFO 14484 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-17T18:19:18.808+09:00  WARN 14484 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-17T18:19:19.259+09:00  INFO 14484 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-17T18:19:19.259+09:00  INFO 14484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-17T18:19:19.264+09:00  INFO 14484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2024-01-17T18:19:19.332+09:00  INFO 14484 --- [    Test worker] me.dlfkdu.MPLB.TestControllerTest        : Started TestControllerTest in 4.323 seconds (process running for 5.661)
+2024-01-17T18:19:19.550+09:00  INFO 14484 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-01-17T18:19:19.550+09:00  INFO 14484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-01-17T18:19:19.551+09:00  INFO 14484 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0 
+    where
+        m1_0.id=?
+Hibernate: 
+    update
+        member 
+    set
+        name=? 
+    where
+        id=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
